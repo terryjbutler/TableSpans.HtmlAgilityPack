@@ -2,6 +2,8 @@
 
 An extension for HtmlAgilityPack to handle collapsing rowspan and colspan into unique cells to aid in parsing tables.
 
+![TableSpans.HtmlAgilityPack Demo](https://raw.githubusercontent.com/terryjbutler/TableSpans.HtmlAgilityPack/master/docs/images/TableSpans.HtmlAgilityPack-Demo.png)
+
 ## Basic Example
 
 ```csharp
