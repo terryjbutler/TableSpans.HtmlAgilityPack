@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Terry Butler</Authors>
+    <PackageId>TableSpans.HtmlAgilityPack</PackageId>
+    <Version>1.0.0</Version>
+    <Company>Terry Butler</Company>
+    <Product>TableSpans.HtmlAgilityPack</Product>
+    <Description>An extension for HtmlAgilityPack to handle collapsing rowspan and colspan into unique cells to aid in parsing tables.</Description>
+    <PackageProjectUrl>https://github.com/terryjbutler/TableSpans.HtmlAgilityPack</PackageProjectUrl>	
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.36" />
+  </ItemGroup>
+
+</Project>

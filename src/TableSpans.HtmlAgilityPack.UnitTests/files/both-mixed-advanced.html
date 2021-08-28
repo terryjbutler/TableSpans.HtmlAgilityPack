@@ -1,0 +1,90 @@
+<!-- Source: https://stackoverflow.com/questions/16693349/complicated-table-using-rowspan-and-colspan -->
+
+<html>
+<head>
+    <link rel="stylesheet" href="assets/style.css" type="text/css" />
+    <script src="assets/scripts.js"></script>
+    <style>
+        table {
+            table-layout: fixed;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #666;
+        }
+
+        .yellow {
+            background: yellow;
+        }
+
+        .lightblue {
+            background: lightblue;
+        }
+
+        .lightgreen {
+            background: lightgreen;
+        }
+
+        .lightyellow {
+            background: lightyellow;
+        }
+
+        .salmon {
+            background: salmon;
+        }
+
+        .pink {
+            background: pink;
+        }
+
+        .tomato {
+            background: tomato;
+        }
+
+        .gold {
+            background: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="1" class="yellow">1</td>
+            <td colspan="2" class="yellow">2</td>
+            <td colspan="2" class="yellow">3</td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2" class="lightblue">4</td>
+            <td colspan="3" class="lightblue">5</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="lightgreen">6</td>
+            <td rowspan="3" class="lightgreen">7</td>
+        </tr>
+        <tr>
+            <td rowspan="5" class="lightyellow">8</td>
+            <td class="lightyellow">9</td>
+            <td class="lightyellow">10</td>
+            <td rowspan="2" class="lightyellow">11</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="salmon">12</td>
+        </tr>
+        <tr>
+            <td rowspan="3" class="pink">13</td>
+            <td colspan="3" class="pink">14</td>
+        </tr>
+        <tr>
+            <td rowspan="1" colspan="2" class="tomato">15</td>
+            <td rowspan="1" colspan="1" class="tomato">16</td>
+        </tr>
+        <tr>
+            <td rowspan="1" colspan="3" class="gold">17</td>
+        </tr>
+    </table>
+</body>
+
+</html>

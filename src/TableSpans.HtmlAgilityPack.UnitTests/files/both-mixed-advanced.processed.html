@@ -1,0 +1,90 @@
+<!-- Source: https://stackoverflow.com/questions/16693349/complicated-table-using-rowspan-and-colspan -->
+
+<html>
+<head>
+    <link rel="stylesheet" href="assets/style.css" type="text/css">
+    <script src="assets/scripts.js"></script>
+    <style>
+        table {
+            table-layout: fixed;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #666;
+        }
+
+        .yellow {
+            background: yellow;
+        }
+
+        .lightblue {
+            background: lightblue;
+        }
+
+        .lightgreen {
+            background: lightgreen;
+        }
+
+        .lightyellow {
+            background: lightyellow;
+        }
+
+        .salmon {
+            background: salmon;
+        }
+
+        .pink {
+            background: pink;
+        }
+
+        .tomato {
+            background: tomato;
+        }
+
+        .gold {
+            background: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td class="yellow">1</td>
+            <td class="yellow">2</td><td class="yellow">2</td>
+            <td class="yellow">3</td><td class="yellow">3</td>
+        </tr>
+        <tr>
+            <td class="lightblue">4</td><td class="lightblue">4</td>
+            <td class="lightblue">5</td><td class="lightblue">5</td><td class="lightblue">5</td>
+        </tr>
+        <tr>
+            <td class="lightblue">4</td><td class="lightblue">4</td><td class="lightgreen">6</td><td class="lightgreen">6</td>
+            <td class="lightgreen">7</td>
+        </tr>
+        <tr>
+            <td class="lightyellow">8</td>
+            <td class="lightyellow">9</td>
+            <td class="lightyellow">10</td>
+            <td class="lightyellow">11</td><td class="lightgreen">7</td>
+        </tr>
+        <tr>
+            <td class="lightyellow">8</td><td class="salmon">12</td><td class="salmon">12</td><td class="lightyellow">11</td><td class="lightgreen">7</td>
+        </tr>
+        <tr>
+            <td class="lightyellow">8</td><td class="pink">13</td>
+            <td class="pink">14</td><td class="pink">14</td><td class="pink">14</td>
+        </tr>
+        <tr>
+            <td class="lightyellow">8</td><td class="pink">13</td><td class="tomato">15</td><td class="tomato">15</td>
+            <td class="tomato">16</td>
+        </tr>
+        <tr>
+            <td class="lightyellow">8</td><td class="pink">13</td><td class="gold">17</td><td class="gold">17</td><td class="gold">17</td>
+        </tr>
+    </table>
+</body>
+
+</html>
