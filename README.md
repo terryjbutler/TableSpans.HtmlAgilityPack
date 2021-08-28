@@ -2,6 +2,8 @@
 
 An extension for HtmlAgilityPack to handle collapsing rowspan and colspan into unique cells to aid in parsing tables.
 
+If you try to parse a table that makes use of colspans or rowspans, you'll find the results of the parsing fail completely. This package rebuilds the individual cells duplicating the results across the missing cells.
+
 ![TableSpans.HtmlAgilityPack Demo](https://raw.githubusercontent.com/terryjbutler/TableSpans.HtmlAgilityPack/master/docs/images/TableSpans.HtmlAgilityPack-Demo.png)
 
 ## Basic Example
@@ -26,6 +28,18 @@ namespace TableSpans.HtmlAgilityPack.Demo
     </tr>
 </table>";
 
+        static void PrintArray(object[,] arr)
+        {
+            for (int y = 0; y < arr.GetLength(1); y++)
+            {
+                for (int x = 0; x < arr.GetLength(0); x++)
+                {
+                    Console.Write($"[{x}, {y}] \"{arr[x, y]}\" ");
+                }
+                Console.WriteLine();
+            }
+        }
+
         static void Main(string[] args)
         {
             var tableSpansExtension = new TableSpansExtension();
@@ -45,6 +59,7 @@ namespace TableSpans.HtmlAgilityPack.Demo
             tableNode.ParentNode.ReplaceChild(newTableNode, tableNode);
 
             /*
+            htmlTableNodeBefore:
             <table>
                 <tr>
                     <td colspan='2'>A</td>
@@ -59,6 +74,7 @@ namespace TableSpans.HtmlAgilityPack.Demo
             var htmlTableNodeBefore = tableNode.OuterHtml;
 
             /*
+            htmlTableNodeAfter:
             <table>
                 <tr>
                     <td>A</td>
@@ -75,16 +91,37 @@ namespace TableSpans.HtmlAgilityPack.Demo
             var htmlTableNodeAfter = newTableNode.OuterHtml;
 
             /*    
-		    [0, 0] "A"  [0, 1] "C"
-		    [1, 0] "B"  [1, 1] "D"
+            arrBefore:
+            [0, 0] "A" [1, 0] "B"
+            [0, 1] "C" [1, 1] "D"
             */
             var arrBefore = tableSpansExtension.ToArray(tableNode);
 
             /*
-  		    [0, 0] "A"  [1, 0] "A"  [2, 0] "B"
-		    [0, 1] "C"  [1, 1] "D"  [2, 1] "B"
+            arrAfter:
+            [0, 0] "A" [1, 0] "A" [2, 0] "B"
+            [0, 1] "C" [1, 1] "D" [2, 1] "B"
             */
             var arrAfter = tableSpansExtension.ToArray(newTableNode);
+
+
+            Console.WriteLine("htmlTableNodeBefore:");
+            Console.WriteLine(htmlTableNodeBefore);
+            Console.WriteLine();
+
+            Console.WriteLine("htmlTableNodeAfter:");
+            Console.WriteLine(htmlTableNodeAfter);
+            Console.WriteLine();
+
+            Console.WriteLine("arrBefore:");
+            PrintArray(arrBefore);
+            Console.WriteLine();
+
+            Console.WriteLine("arrAfter:");
+            PrintArray(arrAfter);
+            Console.WriteLine();
+
+            Console.ReadLine();
         }
     }
 }
@@ -143,3 +180,7 @@ The data array after being processed:
 */
 var arrAfter = tableSpansExtension.ToArray(newTableNode);
 ```
+
+## Credits
+
+Example table found here: https://stackoverflow.com/questions/16693349/complicated-table-using-rowspan-and-colspan
