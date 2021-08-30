@@ -24,11 +24,17 @@
 		<None Update="files\both-mixed-advanced.html">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<None Update="files\colspan-out-of-bounds.html">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 		<None Update="files\rowspan-advanced-2.html">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="files\rowspan-advanced-1.html">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="files\rowspan-out-of-bounds.html">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="files\rowspan-basic.html">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
