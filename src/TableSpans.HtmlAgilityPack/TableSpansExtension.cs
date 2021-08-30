@@ -13,6 +13,11 @@ namespace TableSpans.HtmlAgilityPack
         /// <returns>Returns the processed table as a newly cloned HtmlNode object.</returns>
         public HtmlNode ProcessTable(in HtmlNode tableNode)
         {
+            if (tableNode == null)
+            {
+                return null;
+            }
+
             if (!tableNode.Name.Equals("table"))
             {
                 return tableNode;
@@ -21,6 +26,12 @@ namespace TableSpans.HtmlAgilityPack
             var ret = tableNode.Clone();
 
             var rows = ret.SelectNodes(".//tr");
+
+            // Calculate the maximum number of rows and columns currently in the table after colspan rebuilding
+            var numRows = rows.Count;
+            var numCols = rows
+                .Select(row => row.SelectNodes(".//td|.//th"))
+                .Max(a => a.Count);
 
             // Build ColSpans
             for (int rowIndex = 0; rowIndex < rows.Count; rowIndex++)
@@ -41,6 +52,11 @@ namespace TableSpans.HtmlAgilityPack
 
                         for (int i = 1; i < colspan; i++)
                         {
+                            if (colIndex + i >= numCols)
+                            {
+                                continue;
+                            }
+
                             var newCell = HtmlNode.CreateNode(cell.OuterHtml);
 
                             row.InsertAfter(newCell, cell);
@@ -50,10 +66,10 @@ namespace TableSpans.HtmlAgilityPack
             }
 
             // Calculate the maximum number of rows and columns currently in the table after colspan rebuilding
-            var numRows = rows.Count;
-            var numCols = rows
-                .Select(row => row.SelectNodes(".//td|.//th"))
-                .Max(a => a.Count);
+            numRows = rows.Count;
+            numCols = rows
+               .Select(row => row.SelectNodes(".//td|.//th"))
+               .Max(a => a.Count);
 
             // Build RowSpans
             for (int colIndex = 0; colIndex < numCols; colIndex++)
@@ -74,6 +90,11 @@ namespace TableSpans.HtmlAgilityPack
 
                         for (int i = 1; i < rowspan; i++)
                         {
+                            if (rowIndex + i >= rows.Count)
+                            {
+                                continue;
+                            }
+
                             var subRow = rows[rowIndex + i];
                             var subRowCells = subRow.SelectNodes(".//td|.//th");
 

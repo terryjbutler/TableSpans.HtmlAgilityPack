@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Terry Butler</Authors>
     <PackageId>TableSpans.HtmlAgilityPack</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Company>Terry Butler</Company>
     <Product>TableSpans.HtmlAgilityPack</Product>
     <Description>An extension for HtmlAgilityPack to handle collapsing rowspan and colspan into unique cells to aid in parsing tables.</Description>
